@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My App LP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <section class="hero">
+    <div class="hero-content">
+      <h1>あなたの毎日を<br>もっと便利に</h1>
+      <p>シンプルで直感的なアプリ体験を提供します。</p>
+      <a href="#" class="btn">今すぐダウンロード</a>
+    </div>
+    <div class="hero-image">
+      <img src="mockup.png" alt="アプリのモックアップ">
+    </div>
+  </section>
+</body>
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">アプリの特徴</h2>
+
+    <div class="cards">
+   <!-- 1つ目：直感的な操作 -->
+<div class="feature">
+  <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M12 4v16m0 0l-4-4m4 4l4-4" />
+  </svg>
+  <h3>直感的な操作</h3>
+  <p>誰でもすぐに理解できるUI設計。</p>
+</div>
+
+<!-- 2つ目：サクサク動作 -->
+<div class="feature">
+  <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>
+  <h3>サクサク動作</h3>
+  <p>軽快なレスポンスでストレスなし。</p>
+</div>
+
+<!-- 3つ目：安心のセキュリティ -->
+<div class="feature">
+  <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M12 11c-1.657 0-3 1.343-3 3v4h6v-4c0-1.657-1.343-3-3-3z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M5 11h14V9a7 7 0 10-14 0v2z" />
+  </svg>
+  <h3>安心のセキュリティ</h3>
+  <p>あなたのデータをしっかり守ります。</p>
+</div>
+    </div>  <!-- .cards を閉じる -->
+  </div>    <!-- .container を閉じる -->
+</section>  <!-- .features セクションを閉じる -->
+<!-- ===================  Pricing =================== -->
+<section class="pricing">
+  <div class="container">
+    <h2 class="section-title">料金プラン</h2>
+
+    <div class="pricing-grid">
+      <!-- Free -->
+      <article class="plan">
+        <h3 class="plan-title">Free</h3>
+        <p class="plan-price">¥0<span>/月</span></p>
+        <ul class="plan-features">
+          <li>基本機能</li>
+          <li>広告あり</li>
+          <li>メールサポート（48h以内）</li>
+        </ul>
+        <a href="#" class="btn btn-outline">はじめる</a>
+      </article>
+
+      <!-- Standard -->
+      <article class="plan plan--recommended">
+        <div class="plan-badge">おすすめ</div>
+        <h3 class="plan-title">Standard</h3>
+        <p class="plan-price">¥980<span>/月</span></p>
+        <ul class="plan-features">
+          <li>全機能</li>
+          <li>広告なし</li>
+          <li>メール＆チャットサポート</li>
+        </ul>
+        <a href="#" class="btn">今すぐ試す</a>
+      </article>
+
+      <!-- Pro -->
+      <article class="plan">
+        <h3 class="plan-title">Pro</h3>
+        <p class="plan-price">¥1,980<span>/月</span></p>
+        <ul class="plan-features">
+          <li>チーム利用（5人）</li>
+          <li>優先サポート</li>
+          <li>拡張レポート</li>
+        </ul>
+        <a href="#" class="btn btn-outline">問い合わせ</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================  Contact =================== -->
+<section class="contact">
+  <div class="container">
+    <h2 class="section-title">お問い合わせ</h2>
+
+    <form class="contact-form" action="#" method="post">
+      <div class="form-field">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="message">内容</label>
+        <textarea id="message" name="message" rows="5" placeholder="ご用件を入力してください" required></textarea>
+      </div>
+
+      <button class="btn" type="submit">送信する</button>
+      <p class="form-note">※ デモのため送信は行われません。</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================  Footer =================== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">YourApp</div>
+      <p class="copy">© 2025 YourApp. All rights reserved.</p>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#">ホーム</a>
+      <a href="#">特徴</a>
+      <a href="#">料金</a>
+      <a href="#">お問い合わせ</a>
+    </nav>
+
+    <div class="footer-social">
+      <!-- SVG直貼りでもOK。今回はシンプルにテキストリンク -->
+      <a href="#" aria-label="X">X</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="YouTube">YouTube</a>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</footer>

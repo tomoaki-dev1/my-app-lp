@@ -1,0 +1,647 @@
+body {
+  margin: 0;
+  padding: 40px;
+  background: #f7f7f7;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+h1 { color: #F7943D; }
+.hero {
+  background: #F7943D;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 120px;
+}
+.hero-content { max-width: 50%; }
+.hero-content h1 { font-size: 48px; margin: 0 0 24px; }
+.hero-content p  { font-size: 18px; margin: 0 0 32px; }
+.btn {
+  background: #fff;
+  color: #F7943D;
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .25s;
+}
+.btn:hover { background: #F2994A; color: #fff; }
+.hero-image img { width: 400px; border-radius: 20px; display: block; }
+/* ヒーロー内の文字色を白で上書き */
+.hero h1,
+.hero p {
+  color: #fff;
+}
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 24px;
+  line-height: 1.3; /* 行の高さを調整（1.2〜1.4が読みやすい） */
+}
+/* スマホ向け（幅768px以下） */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* 横並び → 縦並び */
+    text-align: center;     /* テキスト中央揃え */
+    padding: 40px 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 20px; /* テキストと画像の間に余白 */
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* スマホ画面で大きすぎないよう調整 */
+  }
+}
+/* デスクトップの余白をちょい整える（任意） */
+.hero {
+  gap: 32px; /* テキストと画像の間隔 */
+}
+
+/* スマホ向け（幅768px以下） */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* 横並び → 縦並び */
+    text-align: center;
+    padding: 40px 20px;
+    gap: 24px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 320px; /* スマホでの画像の上限幅 */
+    height: auto;
+    margin-inline: auto; /* 中央寄せ */
+    display: block;
+  }
+}
+/* ベースの余白や間隔を少しだけ整える（PC） */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;                /* テキストと画像の間隔 */
+  padding: 80px 120px;      /* セクション上下左右の余白 */
+}
+
+.hero-content { 
+  max-width: 560px;         /* テキスト側が広がりすぎないように */
+}
+
+.hero-content h1 {
+  font-size: clamp(32px, 4vw + 8px, 56px); /* 画面に応じてほどよく伸縮 */
+  line-height: 1.3;
+  margin: 0 0 24px;
+}
+
+.hero-content p {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.hero-image img {
+  width: 420px;             /* 画像の基準サイズ */
+  height: auto;
+  border-radius: 16px;      /* 角丸はお好みで */
+  display: block;
+}
+@media (max-width: 1024px) {
+  .hero {
+    padding: 72px 64px;     /* 余白を少し縮める */
+    gap: 40px;
+  }
+  .hero-image img {
+    width: 360px;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;  /* 横並び → 縦並び */
+    text-align: center;       /* テキスト中央寄せ */
+    padding: 56px 24px;       /* 余白をモバイル向けに */
+    gap: 24px;
+  }
+
+  .hero-content { 
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 320px;         /* スマホでの画像の上限 */
+    margin-inline: auto;      /* 中央配置 */
+  }
+
+  .btn {
+    padding: 14px 24px;       /* タップしやすい */
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 16px;
+  }
+  .hero-content h1 {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+  .hero-image img {
+    max-width: 260px;
+  }
+}
+/* セクション全体：横幅と列幅を賢く調整 */
+.features {
+  display: grid;
+  /* 画面の幅に応じて 1〜3列で自動切替。各カードは最低 260px を確保 */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 64px clamp(16px, 6vw, 120px);
+  max-width: 1200px;
+  margin-inline: auto;            /* 画面中央寄せ */
+  background: #fff6ee;
+}
+
+/* 各カード */
+.feature {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: left;               /* 文字は左寄せ */
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+
+/* アイコン */
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  stroke: #F7943D;
+  margin-bottom: 12px;
+}
+
+/* タイトルと本文。日本語の”変な改行”を抑える */
+.feature h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 8px 0 8px;
+  word-break: keep-all;           /* なるべく字間で折り返さない */
+}
+.feature p {
+  margin: 0;
+  line-height: 1.8;
+  color: #555;
+  word-break: keep-all;
+}
+
+/* タブレット以下で余白調整（任意） */
+@media (max-width: 1024px) {
+  .features { padding: 56px clamp(16px, 5vw, 64px); }
+}
+/* スマホは1列に（auto-fit がやってくれるけど念のため余白だけ） */
+@media (max-width: 768px) {
+  .features { padding: 40px 20px; }
+}
+/* いままで書いたスタイル */
+
+/* カードのベース */
+.feature {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: all 0.3s ease; /* ← アニメーションの基準 */
+}
+
+/* hoverしたとき */
+.feature:hover {
+  transform: translateY(-6px); /* 上に少し浮く */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 影を強く */
+}
+
+/* アイコンをhoverで変化させる（オプション） */
+.feature:hover svg {
+  fill: #ff7a00;
+}
+/* カード hover エフェクト（プロっぽく立体感） */
+.feature {
+  transition: all 0.3s ease; /* アニメーションの基準 */
+}
+
+.feature:hover {
+  transform: translateY(-8px); /* 上に浮く */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* 影を濃く・広げる */
+}
+.section-title {
+  text-align: center;       /* 中央寄せ */
+  font-size: 2rem;          /* 大きめの文字サイズ */
+  font-weight: bold;        /* 太字 */
+  margin-bottom: 2rem;      /* 下に余白 */
+  color: #333;              /* 濃いグレーで落ち着いた色 */
+}
+
+/* ← これがポイント */
+.features .section-title{
+  grid-column: 1 / -1;      /* 全カラムを横断 */
+  justify-self: center;     /* 自身を中央寄せ */
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #333;
+}
+.features .container{
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 6vw, 120px);
+}
+
+.section-title{
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #333;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+/* .features 全体をグリッド化しない */
+.features {
+  padding: 60px 0;
+  background: #fff8f0; /* 背景色は必要なら残す */
+}
+
+/* タイトル */
+.features .section-title {
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #333;
+}
+
+/* カードを並べるのは .cards だけ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+/* 共通コンテナ */
+.container{
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+/* セクション余白と背景 */
+.features{
+  padding: clamp(56px, 8vw, 96px) 0;
+  background: #FFF7EE; /* 淡いベージュ（お好みで）*/
+}
+
+/* セクションタイトル */
+.features .section-title{
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 700;
+  margin: 0 0 32px;
+  color: #333;
+}
+/* カードグリッド */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: stretch;   /* 高さをそろえやすく */
+  /* grid-auto-rows: 1fr;  ←高さ揃えをさらに強制したいなら有効化 */
+}
+/* カード本体 */
+.feature{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* アイコン（直貼りSVGでもOK） */
+.feature svg{
+  width: 40px;
+  height: 40px;
+  stroke: #FF8A1F;         /* ブランドカラー */
+  stroke-width: 2;
+  fill: none;
+}
+
+/* テキスト */
+.feature h3{
+  font-size: 18px;
+  font-weight: 700;
+  margin: 8px 0 4px;
+  color: #222;
+}
+.feature p{
+  margin: 0;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ホバー */
+.feature:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+/* カードの高さを揃える */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: stretch; /* 高さ揃え */
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: 0.3s ease; /* hover用アニメーション */
+}
+
+/* アイコンごとに色を変える */
+.feature:nth-child(1) svg { stroke: #FF8A1F; }  /* オレンジ */
+.feature:nth-child(2) svg { stroke: #FFB800; }  /* 黄色 */
+.feature:nth-child(3) svg { stroke: #FF5E5E; }  /* 赤 */
+
+/* hoverエフェクト */
+.feature:hover {
+  background: linear-gradient(135deg, #fff, #fff3e6);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+/* ========== 共通：テーマ変数（未設定なら追加） ========== */
+:root{
+  --brand: #f3923b;
+  --brand-600: #e07f23;
+  --ink: #222;
+  --muted: #666;
+  --card-bg: #fff;
+  --card-shadow: 0 10px 24px rgba(0,0,0,.08);
+  --radius-xl: 18px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* ========== 特徴カードの磨き込み ========== */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 横並び→自動折返し */
+  gap: clamp(16px, 3vw, 28px);
+  margin-block: clamp(20px, 4vw, 40px);
+}
+
+.feature{
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: clamp(18px, 3.2vw, 28px);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  display: grid;
+  grid-template-columns: 48px 1fr;   /* アイコン + テキスト */
+  align-items: start;
+  column-gap: clamp(12px, 2.2vw, 18px);
+}
+
+.feature:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+}
+
+.feature-icon{
+  width: 40px;
+  height: 40px;
+  stroke: var(--brand);
+}
+
+.feature h3{
+  margin: 0 0 6px;
+  font-size: clamp(18px, 2.2vw, 20px);
+  color: var(--ink);
+}
+
+.feature p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* 低視覚動作（OS設定尊重） */
+@media (prefers-reduced-motion: reduce){
+  .feature{ transition: none; }
+  .feature:hover{ transform: none; }
+}
+/* ===== セクション共通余白 ===== */
+section.pricing,
+section.contact{
+  padding-block: clamp(48px, 8vw, 96px);
+  background: #f9f4ed; /* 少しだけセクションを分ける */
+}
+.site-footer{
+  padding-block: clamp(28px, 5vw, 48px);
+  background: #111;
+  color: #ddd;
+}
+
+/* ===== 見出し ===== */
+.section-title{
+  text-align: center;
+  font-size: clamp(22px, 3vw, 32px);
+  margin: 0 0 clamp(20px, 3.5vw, 36px);
+  color: var(--ink);
+}
+
+/* ===== Pricing ===== */
+.pricing .container{ max-width: 1100px; margin: 0 auto; padding-inline: 6vw; }
+
+.pricing-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.plan{
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: clamp(20px, 3.2vw, 28px);
+  display: grid;
+  gap: 14px;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.plan:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+}
+
+.plan-title{
+  margin: 0;
+  font-size: clamp(18px, 2.4vw, 20px);
+  color: var(--ink);
+}
+
+.plan-price{
+  margin: 4px 0 10px;
+  font-size: clamp(28px, 4.5vw, 36px);
+  font-weight: 800;
+  color: var(--brand);
+}
+.plan-price span{
+  font-size: .5em;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.plan-features{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
+/* バッジ＆おすすめ強調 */
+.plan-badge{
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.plan--recommended{
+  outline: 2px solid color-mix(in oklab, var(--brand) 60%, white);
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
+  box-shadow: 0 8px 18px rgba(243,146,59,.25);
+}
+.btn:hover{
+  transform: translateY(-2px);
+  background: var(--brand-600);
+}
+.btn-outline{
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  box-shadow: none;
+}
+.btn-outline:hover{
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ===== Contact ===== */
+.contact .container{ max-width: 840px; margin: 0 auto; padding-inline: 6vw; }
+
+.contact-form{
+  display: grid;
+  gap: clamp(14px, 2.5vw, 18px);
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.form-field{
+  display: grid;
+  gap: 8px;
+}
+.form-field label{
+  font-weight: 600;
+  color: var(--ink);
+}
+.form-field input,
+.form-field textarea{
+  appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #fff;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.form-field input:focus,
+.form-field textarea:focus{
+  outline: none;
+  border-color: color-mix(in oklab, var(--brand) 70%, white);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 18%, transparent);
+}
+.form-note{
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== Footer ===== */
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: clamp(16px, 3vw, 28px);
+  align-items: start;
+}
+.footer-brand .logo{
+  font-weight: 900; font-size: 20px; color: #fff;
+}
+.footer-brand .copy{ margin: 8px 0 0; color: #9aa; }
+
+.footer-nav,
+.footer-social{
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.footer-nav a,
+.footer-social a{
+  color: #cfd3d8;
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer-nav a:hover,
+.footer-social a:hover{ color: #fff; }
+
+/* ===== 小さめ画面の調整 ===== */
+@media (max-width: 640px){
+  .feature{
+    grid-template-columns: 36px 1fr;
+  }
+  .footer-grid{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-nav, .footer-social{
+    justify-content: center;
+  }
+}
